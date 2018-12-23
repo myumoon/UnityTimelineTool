@@ -19,6 +19,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4367305039739752}
+  - component: {fileID: 114009338211053342}
+  - component: {fileID: 114942246760639938}
   m_Layer: 0
   m_Name: Test01
   m_TagString: Untagged
@@ -39,3 +41,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114009338211053342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738120595874634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4b94ca077974f62afa574a2f428a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_start: 0
+  m_end: 100
+  m_componentData:
+    m_intData: 200
+    m_stringData: abcde
+    m_vectorData: {x: 300, y: 400, z: 500}
+--- !u!114 &114942246760639938
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1738120595874634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4b94ca077974f62afa574a2f428a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_start: 50
+  m_end: 51
+  m_componentData:
+    m_intData: 52
+    m_stringData: 53
+    m_vectorData: {x: 54, y: 55, z: 56}
