@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.Timeline;
+using UnityEngine.Playables;
 
 
 public static class TimelineOutput {
@@ -11,9 +13,12 @@ public static class TimelineOutput {
 	{
 		Debug.Log("ConvertTimelineToComponent");
 		string name = Selection.activeGameObject.name;
-		string timelineName = "Timeline_" + name;
-		string timelinePath = "Assets/TimlineTest/TimelineData/" + timelineName + ".prefab";
+		string timelineName = name;
+		//string timelinePath = "Assets/TimlineTest/TimelineData/" + timelineName + ".prefab";
+		string timelinePath = "Assets/TimlineTest/Playable/" + timelineName + ".prefab";
 
-		var asset = AssetDatabase.LoadAssetAtPath<Timeline>(timelinePath);
+		Debug.Log("asset path:" + timelinePath);
+		var asset = AssetDatabase.LoadAssetAtPath<PlayableAsset>(timelinePath);
+		Debug.Log("asset.name:" + asset.name);
 	}
 }
