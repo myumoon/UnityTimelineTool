@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TimelineLayout {
 	
-	public class LayoutNode {
+	public abstract class LayoutNode {
 		private LayoutNode m_parent      = null;
 		private LayoutNode m_child       = null;
 		private LayoutNode m_prevSibling = null;
@@ -72,6 +72,10 @@ namespace TimelineLayout {
 			}
 			parent = null;
 		}
+
+		// 描画
+		public abstract void Render();
+		
 	}
 
 }
