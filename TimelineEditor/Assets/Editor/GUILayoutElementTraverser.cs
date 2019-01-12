@@ -17,9 +17,11 @@ public class GUILayoutElementTraverser {
 			return null;
 		}
 
-		var element = m_root;
-		while(element.sibling != null) {
-			element = element.sibling;
+		var element = m_root.childRoot;
+		if(element != null) {
+			while(element.nextSibling != null) {
+				element = element.nextSibling;
+			}
 		}
 
 		return element;
@@ -42,7 +44,7 @@ public class GUILayoutElementTraverser {
 			execNode = execNode.childRoot;
 			while(execNode != null) {
 				nodeQueue.Enqueue(execNode);
-				execNode = execNode.sibling;
+				execNode = execNode.nextSibling;
 			}
 		}
 
