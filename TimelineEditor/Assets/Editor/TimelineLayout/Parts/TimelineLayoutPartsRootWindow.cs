@@ -6,7 +6,7 @@ using TimelineLayout;
 namespace TimelineLayout {
 
 	// タイムラインのルート
-	public class LayoutRootWindow : LayoutNode {
+	public class LayoutPartsRootWindow : LayoutNode {
 		
 		public override void Render()
 		{
