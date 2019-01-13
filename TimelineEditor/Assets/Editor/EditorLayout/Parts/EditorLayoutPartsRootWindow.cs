@@ -5,7 +5,7 @@ using UnityEngine;
 namespace EditorLayout {
 
 	// タイムラインのルート
-	public class LayoutPartsRootWindow : LayoutNode {
+	public class LayoutPartsRootWindow : Node {
 		
 		public override void Render()
 		{

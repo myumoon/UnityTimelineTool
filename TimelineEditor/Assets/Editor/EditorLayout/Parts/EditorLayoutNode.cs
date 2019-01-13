@@ -4,53 +4,53 @@ using UnityEngine;
 
 namespace EditorLayout {
 	
-	public abstract class LayoutNode {
-		private LayoutNode m_parent      = null;
-		private LayoutNode m_child       = null;
-		private LayoutNode m_prevSibling = null;
-		private LayoutNode m_nextSibling = null;
+	public abstract class Node {
+		private Node m_parent      = null;
+		private Node m_child       = null;
+		private Node m_prevSibling = null;
+		private Node m_nextSibling = null;
 
 		// 親を取得
-		public LayoutNode parent {
+		public Node parent {
 			private set { m_parent = value; }
 			get { return m_parent; }
 		}
 
 		// 最初の子を取得
-		public LayoutNode childRoot {
+		public Node childRoot {
 			private set { m_child = value; }
 			get { return m_child; }
 		}
 
 		// 姉を取得
-		public LayoutNode prevSibling {
+		public Node prevSibling {
 			private set { m_prevSibling = value; }
 			get { return m_prevSibling; }
 		}
 
 		// 妹を取得
-		public LayoutNode nextSibling {
+		public Node nextSibling {
 			private set { m_nextSibling = value; }
 			get { return m_nextSibling; }
 		}
 
 		// 子を追加
-		public void AddChild(LayoutNode addedChild)
+		public void AddChild(Node addedChild)
 		{
 			if(childRoot == null) {
 				childRoot = addedChild;
 			}
 			else {
-				LayoutNodeTraverser traverser = new LayoutNodeTraverser(childRoot);
+				NodeTraverser traverser = new NodeTraverser(childRoot);
 				var lastChild = traverser.FindLastChild();
 				lastChild.nextSibling = addedChild;
 			}
 		}
 
 		// 親にアタッチ
-		public void AttachToParent(LayoutNode targetParent)
+		public void AttachToParent(Node targetParent)
 		{
-			LayoutNodeTraverser traverser = new LayoutNodeTraverser(targetParent);
+			NodeTraverser traverser = new NodeTraverser(targetParent);
 			var lastChild = traverser.FindLastChild();
 
 			parent = targetParent;
