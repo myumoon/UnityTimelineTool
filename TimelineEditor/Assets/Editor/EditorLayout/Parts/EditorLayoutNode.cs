@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TimelineLayout {
+namespace EditorLayout {
 	
 	public abstract class LayoutNode {
 		private LayoutNode m_parent      = null;

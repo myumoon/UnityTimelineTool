@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TimelineLayout;
 
-namespace TimelineLayout {
+namespace EditorLayout {
 
 	// タイムラインのルート
 	public class LayoutPartsRootWindow : LayoutNode {

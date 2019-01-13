@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace TimelineLayout {
+namespace EditorLayout {
 	
 	public class LayoutNodeTraverser {
 		private LayoutNode m_root = null;
