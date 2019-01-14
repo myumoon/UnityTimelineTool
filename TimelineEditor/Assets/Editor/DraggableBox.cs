@@ -25,6 +25,11 @@ public class DraggableBox : IDrawableParts, IDraggableParts {
 		return m_boxDrawer.Draw();
 	}
 
+	public void OnDrawnChildren()
+	{
+
+	}
+
 	private Vector2 Pos { 
 		get { 
 			return m_boxDrawer.GetPos();

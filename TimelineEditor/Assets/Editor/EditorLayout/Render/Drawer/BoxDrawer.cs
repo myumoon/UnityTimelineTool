@@ -80,4 +80,9 @@ public class BoxDrawer : IDrawableParts {
 
 		return m_rect;
 	}
+
+	public void OnDrawnChildren()
+	{
+
+	}
 }

@@ -29,14 +29,17 @@ namespace EditorLayout {
 
 			return element;
 		}
-
-		// 幅優先でトラバース
-		public IEnumerable<Node> Traverse()
+		
+		/// <summary>
+		/// 幅優先でトラバース
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<Node> TraverseBreadthFirst()
 		{
-			return TraverseIf((Node node) => { return true; });
+			return TraverseBreadthFirstIf(Node => true);
 		}
 
-		public IEnumerable<Node> TraverseIf(Func<Node, bool> condition)
+		public IEnumerable<Node> TraverseBreadthFirstIf(Func<Node, bool> condition)
 		{
 			Queue<Node> nodeQueue = new Queue<Node>();
 			if(m_root != null) {
@@ -59,6 +62,45 @@ namespace EditorLayout {
 				}
 			}
 
+		}
+
+#if false
+		/// <summary>
+		/// 深さ優先でトラバース
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<Node> TraverseDepthFirst()
+		{
+			return TraverseDepthFirstIf(m_root, Node => true);
+		}
+#endif
+
+		/// <summary>
+		/// 幅優先でトラバースする
+		/// </summary>
+		/// <param name="startAction">開始時に呼び出される</param>
+		/// <param name="endAction">子供探索後に呼び出される</param>
+		/// <param name="condition">このノードを処理するかどうかの条件</param>
+		/// <returns>conditionでfalseが帰ってきた場合はnullが帰る<returns>
+		public void TraverseDepthFirst(Node current, Action<Node> startAction, Action<Node> endAction, Func<Node, bool> condition = null)
+		{
+			if(condition != null && !condition(current)) {
+				return;
+			}
+
+			if(startAction != null) {
+				startAction(current);
+			}
+
+			var child = current.childRoot;
+			while(child != null) {
+				TraverseDepthFirst(child, startAction, endAction, condition);
+				child = child.nextSibling;
+			}
+
+			if(endAction != null) {
+				endAction(current);
+			}
 		}
 	}
 
