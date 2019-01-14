@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 namespace EditorLayout {
@@ -35,7 +36,7 @@ namespace EditorLayout {
 			return TraverseIf((Node node) => { return true; });
 		}
 
-		public IEnumerable<Node> TraverseIf(System.Func<Node, bool> condition)
+		public IEnumerable<Node> TraverseIf(Func<Node, bool> condition)
 		{
 			Queue<Node> nodeQueue = new Queue<Node>();
 			if(m_root != null) {

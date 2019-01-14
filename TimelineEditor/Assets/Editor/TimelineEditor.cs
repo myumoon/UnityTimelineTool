@@ -5,33 +5,17 @@ using UnityEditor;
 
 
 public class TimelineEditor : EditorWindow {
-	Rect          m_windowRect    = new Rect(20, 20, 120, 50);
-	PartsSelector m_partsSelector = new PartsSelector();
-	PartsDragger  m_partsDragger  = new PartsDragger();
-	List<IDrawableParts> m_drawList = new List<IDrawableParts>();
-
+	static EditorLayout.System m_layoutSystem = new EditorLayout.System();
+	
 	public TimelineEditor()
 	{
-		m_partsDragger.Initialize(m_partsSelector);
-
-		NewDraggableBox(new Rect(100, 100, 200, 50));
-		NewDraggableBox(new Rect(100, 200, 50, 50));
-	}
-
-	private DraggableBox NewDraggableBox(Rect rect)
-	{
-		var box = new DraggableBox(rect);
-		m_partsSelector.Register(box);
-		m_partsDragger.Register(box);
-		m_drawList.Add(box);
-
-		return box;
 	}
 
     [MenuItem("Timeline/ActionTimeline")]
     static void Open()
     {
 		GetWindow<TimelineEditor>();
+		m_layoutSystem.Build();
     }
 
 	void Update()
@@ -43,6 +27,7 @@ public class TimelineEditor : EditorWindow {
 	{
 		wantsMouseMove = true;   // マウス情報を取得.
 
+#if false
 		GUILayout.BeginVertical();
 
 		GUILayout.BeginHorizontal();
@@ -87,15 +72,13 @@ public class TimelineEditor : EditorWindow {
 		*/
 
 		/*
-		#if false
+#if false
 		base.OnGUI();
 		windowRect = GUILayout.Window(0, windowRect, DoMyWindow, "My Window", GUILayout.Width(100));
-		#endif
+#endif
 		*/
+#endif
 	}
 
-	void DoMyWindow(int windowID) 
-	{
-		GUILayout.Button("test");
-    }
+
 }
