@@ -10,6 +10,8 @@ namespace EditorLayout {
 		private Node m_prevSibling = null;
 		private Node m_nextSibling = null;
 
+		private Vector2 m_relativePos = Vector2.zero;
+
 		// 親を取得
 		public Node parent {
 			private set { m_parent = value; }
@@ -71,6 +73,18 @@ namespace EditorLayout {
 				nextSibling.prevSibling = prevSibling;
 			}
 			parent = null;
+		}
+
+		public Vector2 relativePos {
+			get { return m_relativePos; }
+			set { m_relativePos = value; }
+		}
+
+		public Vector2 position {
+			get {
+				Vector2 parentPos = parent != null ? parent.position : Vector2.zero;
+				return parentPos + m_relativePos;
+			}
 		}
 
 		// 描画
