@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class BoxDrawer : IDrawableParts {
+public class BoxDrawer : EditorLayout.IDrawableParts {
 	static int    SelectedLineWidth = 2;
 	static Color  SelectedColor     = Color.blue;
 	
@@ -64,7 +64,7 @@ public class BoxDrawer : IDrawableParts {
 		return m_rect;
 	}
 
-	public Rect Draw()
+	public UnityEngine.Rect Render()
 	{
 		if(m_selected) {
 			EditorGUI.DrawRect(
@@ -81,8 +81,9 @@ public class BoxDrawer : IDrawableParts {
 		return m_rect;
 	}
 
-	public void OnDrawnChildren()
+	public void PostRender()
 	{
 
 	}
+
 }

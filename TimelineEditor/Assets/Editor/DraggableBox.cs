@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-public class DraggableBox : IDrawableParts, IDraggableParts {
+public class DraggableBox : EditorLayout.IDrawableParts, IDraggableParts {
 	private Vector2   m_originPos   = Vector2.zero;
 	private Vector2   m_mouseOffset = Vector2.zero;
 	private BoxDrawer m_boxDrawer   = new BoxDrawer();
@@ -20,12 +20,12 @@ public class DraggableBox : IDrawableParts, IDraggableParts {
 		m_originPos = new Vector2(rect.x, rect.y);
 	}
 
-	public Rect Draw()
+	public UnityEngine.Rect Render()
 	{
-		return m_boxDrawer.Draw();
+		return m_boxDrawer.Render();
 	}
 
-	public void OnDrawnChildren()
+	public void PostRender()
 	{
 
 	}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace EditorLayout {
 	
-	public abstract class Node {
+	public abstract class Node : IDrawableParts {
 		private Node m_parent      = null;
 		private Node m_child       = null;
 		private Node m_prevSibling = null;
@@ -74,7 +74,11 @@ namespace EditorLayout {
 		}
 
 		// 描画
-		public abstract void Render();
+		public abstract UnityEngine.Rect Render();
+
+		public virtual void PostRender()
+		{
+		}
 		
 	}
 

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace EditorLayout {
+	public class HorizontalScrollView : Node {
 
-	// タイムラインのルート
-	public class LayoutPartsRootWindow : Node {
-		
 		public override UnityEngine.Rect Render()
 		{
 			return new UnityEngine.Rect();
