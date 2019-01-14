@@ -32,6 +32,11 @@ namespace EditorLayout {
 		// 幅優先でトラバース
 		public IEnumerable<Node> Traverse()
 		{
+			return TraverseIf((Node node) => { return true; });
+		}
+
+		public IEnumerable<Node> TraverseIf(System.Func<Node, bool> condition)
+		{
 			Queue<Node> nodeQueue = new Queue<Node>();
 			if(m_root != null) {
 				yield return m_root;
@@ -41,6 +46,9 @@ namespace EditorLayout {
 			Node execNode = null;
 			while(0 < nodeQueue.Count) {
 				execNode = nodeQueue.Dequeue();
+				if(!condition(execNode)) {
+					continue;
+				}
 				yield return execNode;
 			
 				execNode = execNode.childRoot;
@@ -51,7 +59,6 @@ namespace EditorLayout {
 			}
 
 		}
-
 	}
 
 }
